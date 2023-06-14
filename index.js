@@ -4,6 +4,7 @@ const server = express()
 const cors = require('cors')
 
 const getFlightPassengers = require('./getFlightPassengers.js');
+const validation = require('./validation.js');
 const { PORT } = process.env
 const port = PORT || 3000
 
@@ -11,8 +12,7 @@ server.use(express.json())
 server.use(express.urlencoded({ extended: true }))
 server.use(cors())
 
-server.get('/flights/:id/passengers', getFlightPassengers)
-
+server.get('/flights/:id/passengers', validation, getFlightPassengers)
 
 server.listen(port, () => {
     console.log(`Listening at port ${port}`)
