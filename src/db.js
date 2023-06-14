@@ -37,7 +37,7 @@ Boarding_pass.belongsTo(Seat, { foreignKey: "seat_id", })
 Boarding_pass.belongsTo(Seat_type, { foreignKey: "seat_type_id", })
 Boarding_pass.belongsTo(Purchase, { foreignKey: "purchase_id", })
 Flight.hasMany(Boarding_pass, { foreignKey: "flight_id", })
-Flight.hasMany(Airplane, { foreignKey: "flight_id", })
+Flight.hasMany(Airplane, { foreignKey: "airplane_id", })
 
 module.exports = {
     ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
