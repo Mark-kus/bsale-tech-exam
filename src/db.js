@@ -30,14 +30,12 @@ let capsEntries = entries.map((entry) => [entry[0][0].toUpperCase() + entry[0].s
 sequelize.models = Object.fromEntries(capsEntries);
 
 // Deestructuramos los modelos
-const { Flight, Boarding_pass, Passenger } = sequelize.models;
+const { Flight, Boarding_pass, Passenger, Seat_type, Purchase } = sequelize.models;
 // Relacionamos los modelos
-Flight.hasMany(Boarding_pass, {
-    foreignKey: "flight_id",
-})
-Boarding_pass.belongsTo(Passenger, {
-    foreignKey: "passenger_id",
-})
+Boarding_pass.belongsTo(Passenger, { foreignKey: "passenger_id", })
+Flight.hasMany(Boarding_pass, { foreignKey: "flight_id", })
+Purchase.hasMany(Boarding_pass, { foreignKey: "purchase_id" })
+Seat_type.hasMany(Boarding_pass, { foreignKey: "seat_type_id" })
 
 module.exports = {
     ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
