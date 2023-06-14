@@ -13,6 +13,7 @@ module.exports = fetchFlightData = async (id) => {
                     include: [Passenger, Seat, Seat_type]
                 }
             })
+            
             flight.airplane = await Airplane.findByPk(flight.airplane_id)
         })
         .catch(() => {
