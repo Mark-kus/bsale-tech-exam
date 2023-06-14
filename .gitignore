@@ -1,5 +1,2 @@
 /.env
-/db.js
-/index.js
-/models
 /node_modules
