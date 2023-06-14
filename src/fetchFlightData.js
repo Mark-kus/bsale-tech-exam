@@ -1,4 +1,4 @@
-const { conn, Flight, Boarding_pass, Passenger } = require('./db')
+const { conn, Flight, Boarding_pass, Passenger, Seat, Seat_type } = require('./db')
 
 module.exports = fetchFlightData = async (id) => {
     let flight = null
@@ -10,7 +10,7 @@ module.exports = fetchFlightData = async (id) => {
             flight = await Flight.findByPk(id, {
                 include: {
                     model: Boarding_pass,
-                    include: [Passenger]
+                    include: [Passenger, Seat, Seat_type]
                 }
             })
         })
