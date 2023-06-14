@@ -1,6 +1,6 @@
 module.exports = cleanPassengers = (boarding_passes) => {
     return boarding_passes.map(bp => {
-        if (!bp.seat_id)
+        // if (!bp.seat_id) 
         return {
             passengerId: bp.passenger.passenger_id,
             dni: bp.passenger.dni,

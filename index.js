@@ -3,8 +3,8 @@ const express = require('express')
 const server = express()
 const cors = require('cors')
 
-const getFlightPassengers = require('./getFlightPassengers.js');
-const validation = require('./validation.js');
+const getFlightPassengers = require('./src/getFlightPassengers.js');
+const validation = require('./src/validation.js');
 const { PORT } = process.env
 const port = PORT || 3000
 
