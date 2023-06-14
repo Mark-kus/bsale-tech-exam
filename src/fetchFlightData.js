@@ -1,4 +1,4 @@
-const { conn, Flight, Boarding_pass, Passenger, Seat, Seat_type } = require('./db')
+const { conn, Flight, Boarding_pass, Passenger, Seat, Seat_type, Airplane } = require('./db')
 
 module.exports = fetchFlightData = async (id) => {
     let flight = null
@@ -13,6 +13,7 @@ module.exports = fetchFlightData = async (id) => {
                     include: [Passenger, Seat, Seat_type]
                 }
             })
+            flight.airplane = await Airplane.findByPk(flight.airplane_id)
         })
         .catch(() => {
             // If it can't connect, send error
