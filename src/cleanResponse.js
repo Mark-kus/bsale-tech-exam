@@ -1,4 +1,7 @@
 module.exports = cleanResponse = (flight, passengers) => {
+
+    passengers.sort((a, b) => a.seatId - b.seatId);
+
     return {
         code: 200,
         data: {
