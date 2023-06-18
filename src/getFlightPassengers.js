@@ -15,7 +15,7 @@ module.exports = async (req, res) => {
         if (!data) return res.status(404).json({ code: 404, data: {} })
 
         // Removes useless data and gives a seat to "unseated" passengers
-        const passengers = cleanPassengers(data.boarding_passes, data.airplane)
+        const passengers = cleanPassengers(data)
         const response = cleanResponse(data, passengers)
 
         res.status(200).json(response)
