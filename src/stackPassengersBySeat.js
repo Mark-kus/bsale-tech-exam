@@ -1,3 +1,5 @@
+const addSeat = require("./addSeat")
+
 module.exports = (boardingPasses) => {
     const unseatedPassengers = {}
 
